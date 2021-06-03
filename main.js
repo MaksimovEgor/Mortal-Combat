@@ -1,26 +1,30 @@
-let player1 = {
+const player1 = {
     name: 'Sub-zero',
-    hp: "100%",
+    hp: 100,
     img: 'http://reactmarathon-api.herokuapp.com/assets/subzero.gif',
     weapon: ['gun', 'knife', 'stick'],
     attack: function() {
-        console.log(player1.name + " " + "Fight...")
+        console.log(player1.name + " Fight...")
     }
 }
 
-let player2 = {
+const player2 = {
     name: 'Lu kan',
-    hp: "100%",
+    hp: 100,
     img: 'http://reactmarathon-api.herokuapp.com/assets/liukang.gif',
     weapon: ['gun', 'knife', 'stick'],
     attack: function() {
-        console.log(player2.name + " " + "Fight...")
+        console.log(player2.name + " Fight...")
     }
 }
 
 const createPlayer = function(name, player) {
+
     const $player = document.createElement('div');
     $player.classList.add(name);
+
+    const $arenas = document.querySelector('.arenas');
+    $arenas.appendChild($player);
 
     const $progressBar = document.createElement('div');
     $progressBar.classList.add('progressbar');
@@ -46,14 +50,6 @@ const createPlayer = function(name, player) {
     $img.src = player.img;
 
     $character.appendChild($img);
-
-    const $root = document.querySelector('.root');
-    $root.appendChild($player);
-
-
-    const $arenas = document.querySelector('.arenas');
-    $arenas.appendChild($player);
-
 }
 
 createPlayer('player1', player1);
